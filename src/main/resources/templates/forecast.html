@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>forecast for Krzykosy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table {align: center;
+            text-align: center;
+            width: 90%;
+        }
+
+    </style>
+</head>
+<body>
+    <p th:text="'test pogody'"></p>
+    <p th:text="'URI: '+ ${uri}">
+    <p th:text="'długość zwróconych danych: '+ ${result_length}">
+
+
+    <div>
+        <table>
+            <tr>
+                <th>time point</th>
+                <th>cloud cover</th>
+                <th>lifted index</th>
+                <th>perc type</th>
+                <th>perc amount</th>
+                <th>temperature</th>
+                <th>rh</th>
+                <th>wind direction</th>
+                <th>wind speed</th>
+                <th>weather</th>
+            </tr>
+            <tr th:each="record : ${records}">
+                <td th:text="${record.timepoint}"></td>
+                <td th:text="${record.cloudcover}"></td>
+                <td th:text="${record.liftedIndex}"></td>
+                <td th:text="${record.precType}"></td>
+                <td th:text="${record.precAmount}"></td>
+                <td th:text="${record.temp2m}"></td>
+                <td th:text="${record.rh2m}"></td>
+                <td th:text="${record.windDirection}"></td>
+                <td th:text="${record.windSpeed}+' m/s'"></td>
+                <td th:text="${record.weather}"></td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</body>
+</html>
